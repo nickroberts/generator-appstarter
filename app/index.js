@@ -56,8 +56,8 @@ var AppstarterGenerator = yeoman.generators.Base.extend({
     }];
 
     this.prompt(prompts, function (props) {
-      this.uxFramework  = props.uxFramework === 'None' ? false : props.uxFramework.toLowerCase();
-      this.jsFramework   = props.jsFramework === 'None' ? false : props.jsFramework.toLowerCase();
+      this.uxFramework = typeof props.uxFramework === 'undefined' || props.uxFramework === 'None' ? false : props.uxFramework.toLowerCase();
+      this.jsFramework = typeof props.jsFramework === 'undefined' || props.jsFramework === 'None' ? false : props.jsFramework.toLowerCase();
 
       done();
     }.bind(this));
@@ -85,8 +85,8 @@ var AppstarterGenerator = yeoman.generators.Base.extend({
     }];
 
     this.prompt(prompts, function (props) {
-      this.cssPre  = props.cssPre === 'None' ? false : props.cssPre.toLowerCase();
-      this.jsPre   = props.jsPre === 'None' ? false : props.jsPre.toLowerCase();
+      this.cssPre  = typeof props.cssPre === 'undefined' || props.cssPre === 'None' ? false : props.cssPre.toLowerCase();
+      this.jsPre   = typeof props.jsPre === 'undefined' || props.jsPre === 'None' ? false : props.jsPre.toLowerCase();
 
       done();
     }.bind(this));
@@ -156,10 +156,10 @@ var AppstarterGenerator = yeoman.generators.Base.extend({
       this.jsPreDir  = props.jsPreDir;
 
       // Split asset directories on slashes
-      this.cssExDir   = props.cssDir.split('/').pop();
-      this.jsExDir    = props.jsDir.split('/').pop();
-      this.imgExDir   = props.imgDir.split('/').pop();
-      this.fontsExDir = props.fontsDir.split('/').pop();
+      this.cssExDir   = typeof props.cssDir !== 'undefined' ? props.cssDir.split('/').pop() : '';
+      this.jsExDir    = typeof props.jsDir !== 'undefined' ? props.jsDir.split('/').pop() : '';
+      this.imgExDir   = typeof props.imgDir !== 'undefined' ? props.imgDir.split('/').pop() : '';
+      this.fontsExDir = typeof props.fontsDir !== 'undefined' ? props.fontsDir.split('/').pop() : '';
 
       done();
     }.bind(this));
