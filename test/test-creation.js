@@ -21,7 +21,11 @@ describe('appstarter generator', function () {
     var expected = [
       // add files you expect to exist here.
       '.jshintrc',
-      '.editorconfig'
+      '.bowerrc',
+      '.gitignore',
+      '.editorconfig',
+      'package.json',
+      'bower.json'
     ];
 
     helpers.mockPrompt(this.app, {
